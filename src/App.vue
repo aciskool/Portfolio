@@ -3,20 +3,24 @@
 
   <HelloWorld msg="Welcome"> </HelloWorld>
 
-  <MyDetails msg="Name" heading="About Me"></MyDetails> 
+  <MyDetails></MyDetails> 
 </template>
 
 <script>
 
 import HelloWorld from './components/HelloWorld.vue';
 import MyDetails from './components/MyDetails.vue';
-// import uniqueId from 'lodash.uniqueid';
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
     MyDetails
+  },
+  data(){
+    return {
+      selected_index: 1
+    }
   }
 }
 </script>

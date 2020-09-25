@@ -5,7 +5,7 @@
       <p id="heading"><b>Hi, I am Arvind <br>Welcome to my Portfolio!!</b></p>
     </div>
     <ul style="text-align:left;">
-      <li v-for="item in NavList" :key="item.id"><a>{{item.heading}}</a></li>
+      <li v-for="item in NavList" :key="item.id" style="cursor:pointer;" v-on:click="changeIndex(item)"><a>{{item.heading}}</a></li>
     </ul>
   </div>
 </template>
@@ -19,6 +19,10 @@ export default {
   methods: {
     giveMessage: function(){
       console.log("Hello");
+    },
+    changeIndex: function(item){
+      
+      console.log(item.id);
     }
   },
   data() {
@@ -36,9 +40,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.hello-all{
-  /* text-align: center; */
-}
+
 .partition-header{
   text-align: center;
   background: url(https://media.giphy.com/media/xT9IgN8YKRhByRBzMI/source.gif);
@@ -53,6 +55,7 @@ export default {
 #heading{
   font-size: 30px;
   color: #000000;
+  text-shadow: 2px 2px #121010;
   margin-top: 10%;
 }
 ul {
