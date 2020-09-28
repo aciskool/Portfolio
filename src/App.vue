@@ -1,25 +1,22 @@
 <template>
   <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
 
-  <HelloWorld msg="Welcome"> </HelloWorld>
+  <HelloWorld msg="Welcome"></HelloWorld>
 
-  <MyDetails></MyDetails> 
+  
 </template>
 
 <script>
-
 import HelloWorld from './components/HelloWorld.vue';
-import MyDetails from './components/MyDetails.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    MyDetails
+    HelloWorld
   },
-  data(){
-    return {
-      selected_index: 1
+  methods: {
+    setIndex(v){
+      this.indexNo = v;
     }
   }
 }
