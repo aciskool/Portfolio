@@ -27,7 +27,12 @@
                 
             </div>
         </div>
-        
+        <div class="project">
+            <h1><u>Project:</u></h1>
+            <div class="projectData">
+
+            </div>
+        </div>
   </div>
   </div>
 </template>
@@ -51,7 +56,7 @@ export default {
   },
   data() {
     return {
-      description : "I am a Full Stack Devloper interested in learning new Technologies & participate in development of awesome futuristic Products."
+      description : "I am a Full Stack Developer interested in learning new Technologies & participate in development of awesome futuristic Products."
       ,
       NavList : [
         {id: 1,heading: "About Me", show: true},
@@ -74,6 +79,9 @@ export default {
       ],
       backend : [
         {id:1, name:"NodeJS", value:65},
+        {id:2, name:"RESTful APIs", value:70},
+        {id:3, name:"MySQL", value:80},
+        {id:4, name:"SQLite", value:68}
       ],
       coding : [
         {id:1 , name: "C", value:70},
@@ -85,6 +93,10 @@ export default {
         {id:1 , name: 'Frontend'},
         {id:2, name: 'Backend'},
         {id:3, name: 'Coding'}
+      ],
+      project : [
+        {id:1, name:"Weather Reporting Site", about:"I created a weather reporting Site that gives infirmation regarding Temperature and Chances of Rain in an area. It is build by NodeJS and using Weather Forecast APIs"},
+        {id:2, name:"Sample", about:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
       ]
     }
   },
