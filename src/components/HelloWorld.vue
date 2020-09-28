@@ -16,13 +16,13 @@
             <div class="animation-images">
                 <div class="buttons" v-for="data in buttonData" :key="data.id">{{data.name}}</div>
                   <div class="list-items">
-                  <p v-for="data in frontend" :key="data.id">- {{data.name}}<progress value="30" max=100 style="float:right;margin-right: 10%"></progress></p>
+                  <p v-for="data in frontend" :key="data.id">- {{data.name}} <span class="bar"><span class="progress" v-bind:style="{'background': red, 'width':data.value+'%'}"></span></span></p>
                 </div>
                 <div class="list-items">
-                  <p v-for="data in backend" :key="data.id">- {{data.name}}<progress value="40" max=100 style="float:right;margin-right: 10%"></progress></p>
+                  <p v-for="data in backend" :key="data.id">- {{data.name}} <span class="bar"><span class="progress" v-bind:style="{'background': red, 'width':data.value+'%'}"></span></span></p>
                 </div>
                 <div class="list-items">
-                  <p v-for="data in coding" :key="data.id">- {{data.name}}<progress value="60" max=100 style="float:right;margin-right: 10%"></progress></p>
+                  <p v-for="data in coding" :key="data.id">- {{data.name}}<span class="bar"><span class="progress" v-bind:style="{'background': red, 'width':data.value+'%'}"></span></span></p>
                 </div>
                 
             </div>
@@ -68,18 +68,18 @@ export default {
         ],
       frontend : [
         {id:1, name:"Angular", value:50},
-        {id:2, name:"React", value:70},
-        {id:3, name:"Vue", value: 39},
+        {id:2, name:"React", value:40},
+        {id:3, name:"Vue", value: 65},
         {id:4, name:"HTML/CSS", value: 80},
       ],
       backend : [
-        {id:1, name:"NodeJS"},
+        {id:1, name:"NodeJS", value:65},
       ],
       coding : [
-        {id:1 , name: "C"},
-        {id:2 , name: "C++"},
-        {id:3 , name: "Python"},
-        {id:4 , name: "Javascript"}
+        {id:1 , name: "C", value:70},
+        {id:2 , name: "C++", value:75},
+        {id:3 , name: "Python",value:55},
+        {id:4 , name: "Javascript",value:60}
       ],
       buttonData : [
         {id:1 , name: 'Frontend'},
@@ -120,18 +120,23 @@ export default {
   padding: 2%;
   border-style: outset;
   font-size: 20px;
+  text-align: center;
 }
-progress{
-  -webkit-appearance: none;
-  width: 8em;
-}
-::-webkit-progress-bar{
-  background-color:grey;
+.bar{
   border: 2px solid black;
+  float:right;
+  width: 40%;
+  height: 15px;
+  margin-right: 10%;
+  background-color: grey;
+  overflow: hidden;
 }
-::-webkit-progress-value{
-  background-color: white;
+.progress{
   border-right: 2px solid black;
+  float: left;
+  padding: 2px;
+  height: 15px;
+  background-color: white;
 }
 ul {
   list-style-type: none;
