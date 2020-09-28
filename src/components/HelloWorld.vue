@@ -33,7 +33,7 @@
                 <div v-for="data in project" :key="data.id" class="projectComponent">
                   <div style="font-size:25px">{{data.name}}</div><br>
                   <div>{{data.about}}</div><br>
-                  <div style="position:absolute;bottom:4%;"><button>Link</button></div>
+                  <div style="position:absolute;bottom:4%;"><button style="border:1px solid black;color:white;background-color:black;width:60px;height:30px;"><strong>Link</strong></button></div>
                 </div>
             </div>
         </div>
