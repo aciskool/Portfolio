@@ -5,10 +5,10 @@
       <p id="heading"><b>Hi, I am Arvind <br>Welcome to my Portfolio!!</b></p>
     </div>
     <ul style="text-align:left;" class="nav-bar">
-      <li v-for="item in NavList" :key="item.id" style="cursor:pointer;" v-on:click="changeIndex(item)"><a>{{item.heading}}</a></li>
+      <li v-for="item in NavList" :key="item.id" style="cursor:pointer;" v-on:click="jumptoview(item)"><a>{{item.heading}}</a></li>
     </ul>
     <div class="main_data">
-        <div class="aboutme">
+        <div class="aboutme" id="about">
             <h1><u>About Me:</u></h1>
             <div class="description">
               <p>{{description}}</p>
@@ -24,18 +24,33 @@
                 <div class="list-items">
                   <p v-for="data in coding" :key="data.id">- {{data.name}}<span class="bar"><span class="progress" v-bind:style="{'background': red, 'width':data.value+'%'}"></span></span></p>
                 </div>
-                
             </div>
         </div>
-        <div class="project">
+        <div class="project" id="project">
             <h1><u>Project:</u></h1>
             <div class="projectData">
                 <div v-for="data in project" :key="data.id" class="projectComponent">
-                  <div style="font-size:25px">{{data.name}}</div><br>
+                  <div style="font-size:25px"><strong>{{data.name}}</strong></div><br>
                   <div>{{data.about}}</div><br>
-                  <div style="position:absolute;bottom:4%;"><button style="border:1px solid black;color:white;background-color:black;width:60px;height:30px;"><strong>Link</strong></button></div>
+                  <div style="position:absolute;bottom:4%;"><button style="border:1px solid black;color:white;background-color:black;width:60px;height:30px;cursor:pointer;" @click="loadLink(data)"><strong>Link</strong></button></div>
                 </div>
             </div>
+        </div>
+        <div class="education" id="education">
+            <h1><u>Education:</u></h1>
+            <div class="educationData">
+                <div v-for="data in education" :key="data.id" class="educationComponent">
+                    <div style="font-size:25px;"><strong><u>{{data.type}}</u></strong></div><br>
+                    <div>{{data.school}}</div>
+                    <div>({{data.time}})</div><br>
+                    <div>{{data.major}}</div>
+                    <div>{{data.agg}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="contact" id="contact">
+              <h1><u>Contact:</u></h1>
+                    
         </div>
   </div>
   </div>
@@ -44,18 +59,20 @@
 <script>
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String
-  },
   methods: {
     giveMessage: function(){
       console.log("Hello");
     },
-    changeIndex: function(item){
-      this.selected_index = item.id;
+    jumptoview: function(item){
+      var elmt = document.getElementById(item.ids);
+      elmt.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
     },
     progressBar: function(){
       console.log("hello");
+    },
+    loadLink: function(data){
+      if(data.id == 1)
+        window.open("https://aravind-weather-app.herokuapp.com/");
     }
   },
   data() {
@@ -63,17 +80,17 @@ export default {
       description : "I am a Full Stack Developer interested in learning new Technologies & participate in development of awesome futuristic Products."
       ,
       NavList : [
-        {id: 1,heading: "About Me", show: true},
-        {id: 2,heading: "Project", show: true},
-        {id: 3,heading: "Education", show: true},
-        {id: 4,heading: "Interests", shoe: true}
+        {id: 1,heading: "About Me", show: true , ids: "about"},
+        {id: 2,heading: "Project", show: true , ids: "project"},
+        {id: 3,heading: "Education", show: true , ids : "education"},
+        {id: 4,heading: "Contact", shoe: true , ids : "contact"}
       ],
       selected_index : 1,
       info : [
         {id: 1,heading: "About Me", show: true, filename:"about.html",content: "<div><p>Hello</p></div>"},
         {id: 2,heading: "Project", show: true, content:"List of Projects"},
         {id: 3,heading: "Education", show: true,  content:"Education Background"},
-        {id: 4,heading: "Interests", shoe: true,  content:"My interests for my future."}    
+        {id: 4,heading: "Interests", show: true,  content:"My interests for my future."}    
         ],
       frontend : [
         {id:1, name:"Angular", value:50},
@@ -99,8 +116,12 @@ export default {
         {id:3, name: 'Coding'}
       ],
       project : [
-        {id:1, name:"Weather Reporting Site", about:"I created a weather reporting Site that gives infirmation regarding Temperature and Chances of Rain in an area. It is build by NodeJS and using Weather Forecast APIs"},
-        {id:2, name:"Sample", about:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
+        {id:1, name:"Weather Reporting Site", about:"I created a weather reporting Site that gives information regarding Temperature and Chances of Rain in an area. It is build by NodeJS and using Weather Forecast APIs."},
+      ],
+      education:[
+        {id:1, type:"Graduation",school:"JSS Academy of Technical Education",time:"2016-2020",major:"Electronics & Communication",agg:"73%"},
+        {id:2, type:"XII",school:"RSPS",time:"2014-2015",major:"Physics-Chemistry-Maths",agg:"91%"},
+        {id:3, type:"X",school:"RSPS",time:"2012-2013",major:"Physics-Chemistry-Maths",agg:"9.8 CGPA"}
       ]
     }
   },
@@ -140,7 +161,7 @@ export default {
 }
 .projectData{
   display: grid;
-  font-size: 15px;
+  font-size: 19px;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 5%;
   padding: 10px;
@@ -148,11 +169,24 @@ export default {
   margin-right: 5%;
   overflow: none;
 }
-.projectComponent{
+.educationData{
+  display: grid;
+  font-size: 19px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 5%;
+  padding: 10px;
+  margin-bottom: 10%;
+  margin-right: 5%;
+  overflow: none;
+}
+.projectComponent, .educationComponent{
     border: 1px solid black;
     padding: 10px;
     position: relative;
     height: 100%;
+}
+.educationComponent:hover , .projectComponent:hover{
+  background-color: #F5F5F5;
 }
 .bar{
   border: 2px solid black;

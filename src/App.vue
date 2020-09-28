@@ -2,7 +2,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
   <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
 
-  <HelloWorld msg="Welcome"></HelloWorld>
+  <HelloWorld></HelloWorld>
 
   
 </template>
