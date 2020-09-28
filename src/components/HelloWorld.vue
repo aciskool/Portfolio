@@ -30,7 +30,11 @@
         <div class="project">
             <h1><u>Project:</u></h1>
             <div class="projectData">
-
+                <div v-for="data in project" :key="data.id" class="projectComponent">
+                  <div style="font-size:25px">{{data.name}}</div><br>
+                  <div>{{data.about}}</div><br>
+                  <div style="position:absolute;bottom:4%;"><button>Link</button></div>
+                </div>
             </div>
         </div>
   </div>
@@ -133,6 +137,22 @@ export default {
   border-style: outset;
   font-size: 20px;
   text-align: center;
+}
+.projectData{
+  display: grid;
+  font-size: 15px;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 5%;
+  padding: 10px;
+  margin-bottom: 10%;
+  margin-right: 5%;
+  overflow: none;
+}
+.projectComponent{
+    border: 1px solid black;
+    padding: 10px;
+    position: relative;
+    height: 100%;
 }
 .bar{
   border: 2px solid black;
