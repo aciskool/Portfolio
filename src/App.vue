@@ -1,4 +1,5 @@
 <template>
+  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
   <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
 
   <HelloWorld msg="Welcome"></HelloWorld>
@@ -24,13 +25,13 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
+  font-family: 'Fjalla One', sans-serif;  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin-top: 60px;
   margin: 0px;
 }
 body{
   margin: 0px; 
+  background-color: #9e4c15;
 }
 </style>

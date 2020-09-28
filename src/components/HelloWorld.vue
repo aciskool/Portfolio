@@ -4,14 +4,27 @@
       <img src="../assets/a.png" alt="image" id="logo">
       <p id="heading"><b>Hi, I am Arvind <br>Welcome to my Portfolio!!</b></p>
     </div>
-    <ul style="text-align:left;">
+    <ul style="text-align:left;" class="nav-bar">
       <li v-for="item in NavList" :key="item.id" style="cursor:pointer;" v-on:click="changeIndex(item)"><a>{{item.heading}}</a></li>
     </ul>
     <div class="main_data">
         <div class="aboutme">
-            <h1>About Me</h1>
+            <h1><u>About Me:</u></h1>
             <div class="description">
-              <p>I am a Full Stack Devloper interested in learning new Technologies & participate in development of awesome futuristic Products.</p>
+              <p>{{description}}</p>
+            </div>
+            <div class="animation-images">
+                <div class="buttons" v-for="data in buttonData" :key="data.id">{{data.name}}</div>
+                  <div class="list-items">
+                  <p v-for="data in frontend" :key="data.id">- {{data.name}}<progress value="30" max=100 style="float:right;margin-right: 10%"></progress></p>
+                </div>
+                <div class="list-items">
+                  <p v-for="data in backend" :key="data.id">- {{data.name}}<progress value="40" max=100 style="float:right;margin-right: 10%"></progress></p>
+                </div>
+                <div class="list-items">
+                  <p v-for="data in coding" :key="data.id">- {{data.name}}<progress value="60" max=100 style="float:right;margin-right: 10%"></progress></p>
+                </div>
+                
             </div>
         </div>
         
@@ -20,7 +33,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'HelloWorld',
   props: {
@@ -32,10 +44,15 @@ export default {
     },
     changeIndex: function(item){
       this.selected_index = item.id;
+    },
+    progressBar: function(){
+      console.log("hello");
     }
   },
   data() {
     return {
+      description : "I am a Full Stack Devloper interested in learning new Technologies & participate in development of awesome futuristic Products."
+      ,
       NavList : [
         {id: 1,heading: "About Me", show: true},
         {id: 2,heading: "Project", show: true},
@@ -48,7 +65,27 @@ export default {
         {id: 2,heading: "Project", show: true, content:"List of Projects"},
         {id: 3,heading: "Education", show: true,  content:"Education Background"},
         {id: 4,heading: "Interests", shoe: true,  content:"My interests for my future."}    
-        ]
+        ],
+      frontend : [
+        {id:1, name:"Angular", value:50},
+        {id:2, name:"React", value:70},
+        {id:3, name:"Vue", value: 39},
+        {id:4, name:"HTML/CSS", value: 80},
+      ],
+      backend : [
+        {id:1, name:"NodeJS"},
+      ],
+      coding : [
+        {id:1 , name: "C"},
+        {id:2 , name: "C++"},
+        {id:3 , name: "Python"},
+        {id:4 , name: "Javascript"}
+      ],
+      buttonData : [
+        {id:1 , name: 'Frontend'},
+        {id:2, name: 'Backend'},
+        {id:3, name: 'Coding'}
+      ]
     }
   },
   loadHTML(){
@@ -73,15 +110,28 @@ export default {
 }
 #heading{
   font-size: 30px;
-  color: #000000;
-  text-shadow: 0px -1px #ffffff;
+  color: #ffffff;
+  text-shadow: 4px 3px #000000;
   margin-top: 10%;
 }
 .description{
   border: 2px solid black;
-  margin-right: 40%;
+  margin-right: 5%;
   padding: 2%;
   border-style: outset;
+  font-size: 20px;
+}
+progress{
+  -webkit-appearance: none;
+  width: 8em;
+}
+::-webkit-progress-bar{
+  background-color:grey;
+  border: 2px solid black;
+}
+::-webkit-progress-value{
+  background-color: white;
+  border-right: 2px solid black;
 }
 ul {
   list-style-type: none;
@@ -111,4 +161,25 @@ li a:hover {
     margin-left: 3%;
     margin-top: 5%;
   }
+  .animation-images{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 5%;
+  }
+ .buttons{
+    text-align: center;
+    background-color: #ba4d02;
+    font-family: 'Fjalla One', sans-serif;
+    color: white;
+    padding: 5%;
+    font-size: 28px;
+    margin-right: 10%;
+    border: 1px white solid;
+ }
+ .buttons:hover{
+   background-color: #4a3323;
+ }
+ .list-items{
+   font-size: 20px;
+ }
 </style>
