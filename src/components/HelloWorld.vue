@@ -1,7 +1,7 @@
 <template>
   <div class="hello-all">
     <div class="partition-header">
-      <img src="../assets/a.png" alt="image" id="logo">
+      <img src="../assets/letterA.png" alt="image" id="logo">
       <p id="heading"><b>Hi, I am Arvind <br>Welcome to my Portfolio!!</b></p>
     </div>
     <ul style="text-align:left;" class="nav-bar">
@@ -50,13 +50,16 @@
         </div>
         <div class="contact" id="contact">
               <h1><u>Contact:</u></h1>
-                    
+              <div>
+                  
+              </div>     
         </div>
   </div>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'HelloWorld',
   methods: {
@@ -142,8 +145,8 @@ export default {
   padding: 10px;
 }
 #logo{
-  width: 60px;
-  height: 60px;
+  width: 90px;
+  height: 90px;
 }
 #heading{
   font-size: 30px;
