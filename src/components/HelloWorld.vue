@@ -50,8 +50,10 @@
         </div>
         <div class="contact" id="contact">
               <h1><u>Contact:</u></h1>
-              <div>
-                  
+              <div class="contactData">
+                  <img src="../assets/linkd.png" alt="linked-in" id="linkedin" @click="openSocialLink()" style="cursor:pointer;">
+                  <img src="../assets/facebook.png" alt="facebook" id="facebook" @click="openSocialFace()" style="cursor:pointer;">
+                  <img src="" alt="">
               </div>     
         </div>
   </div>
@@ -70,12 +72,15 @@ export default {
       var elmt = document.getElementById(item.ids);
       elmt.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
     },
-    progressBar: function(){
-      console.log("hello");
-    },
     loadLink: function(data){
       if(data.id == 1)
         window.open("https://aravind-weather-app.herokuapp.com/");
+    },
+    openSocialLink: function(){
+      window.open('https://www.linkedin.com/in/arvind-chaudhary-a0014718b');
+    },
+    openSocialFace: function(){
+      window.open('https://www.facebook.com/aciskool');
     }
   },
   data() {
@@ -147,6 +152,17 @@ export default {
 #logo{
   width: 90px;
   height: 90px;
+}
+#linkedin{
+  width: 50px;
+}
+#facebook{
+  width: 43px;
+  margin-left: 3%;
+}
+.contactData{
+  margin-left:45%;
+  padding: 10px;
 }
 #heading{
   font-size: 30px;
