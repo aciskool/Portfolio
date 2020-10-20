@@ -226,12 +226,12 @@ export default {
   border: 3px solid black;
   margin-right: 5%;
   padding: 2%;
-  font-size: 20px;
+  font-size: 1.3em;
   text-align: center;
 }
 .projectData{
   display: grid;
-  font-size: 19px;
+  font-size: 1em;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 5%;
   padding: 10px;
@@ -257,7 +257,7 @@ export default {
 }
 .educationData{
   display: grid;
-  font-size: 19px;
+  font-size: 1em;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 5%;
   padding: 10px;
@@ -290,10 +290,20 @@ export default {
 .progress{
   border-right: 2px solid black;
   float: left;
-  padding: 2px;
-  height: 15px;
+  padding: 1%;
+  height: 100%;
   background-color:#34cf34;
 }
+ @media only screen and (max-width: 780px) {
+    .bar{
+      display: none;
+    }
+    .educationData{
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 10%;
+      margin-bottom: 20%;
+    }
+ }
 ul {
   list-style-type: none;
   margin: 0;
@@ -340,7 +350,7 @@ li a:hover {
     font-family: 'Fjalla One', sans-serif;
     color: white;
     padding: 5%;
-    font-size: 28px;
+    font-size: 1.6em;
     margin-right: 10%;
     border: 1px white solid;
  }
